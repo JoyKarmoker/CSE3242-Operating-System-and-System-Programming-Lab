@@ -1,1 +1,1 @@
-waitingTime
+timeTable

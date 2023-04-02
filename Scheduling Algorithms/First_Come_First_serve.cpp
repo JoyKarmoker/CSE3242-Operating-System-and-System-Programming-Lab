@@ -4,18 +4,18 @@ vector<pair<int, int>> gq;
 vector<int> FCFS(int processes[], int number_of_process)
 {
     vector<int> Timetable;
-    
+
     for(int j=0; j<number_of_process; j++)
     {
-        
+
         int current_process_burst_time = processes[j];
         for(int i=0; i<current_process_burst_time; i++)
         {
             Timetable.push_back((j+1));
         }
-        
+
     }
-    
+
     return Timetable;
 }
 
@@ -116,12 +116,17 @@ int main()
         processes[i] = burst_time;
     }
     timeTable = FCFS(processes, number_of_process);
-    
+    printf("Time table: ");
+    for(auto x: timeTable)
+    {
+        cout << x << " ";
+    }
+    cout << endl;
     printf("Gannt Chart: \n");
     totalWaitingTime = printGanttChart(timeTable);
     averageWaitingTime = totalWaitingTime / (number_of_process * 1.0);
     //printf("Total Waiting Time: %0.2f\n", totalWaitingTime);
     printf("Average Waiting Time: %0.2f\n", averageWaitingTime);
-    
+
     return 0;
 }
