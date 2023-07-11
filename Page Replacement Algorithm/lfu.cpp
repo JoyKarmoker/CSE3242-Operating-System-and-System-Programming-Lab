@@ -14,16 +14,21 @@ bool contains(vector<pair<int, int>> frames_array, int n)
 int getIndex(vector<pair<int, int>> &frames_array)
 {
     int size = frames_array.size();
-    int index = 0;
-    int largest = frames_array[0].second;
+    int index = -1;
+    int smallest = frames_array[0].second;
 
     for (int i = 1; i < size; i++)
     {
-        if (frames_array[i].second > largest)
+        if (frames_array[i].second < smallest)
         {
             index = i;
-            largest = frames_array[i].second;
+            smallest = frames_array[i].second;
         }
+    }
+
+    if (index == -1)
+    {
+        index = 0; // select the first frame if all have the same second value
     }
 
     return index;
@@ -33,7 +38,7 @@ int getIndex(vector<pair<int, int>> &frames_array)
 int main()
 {
     pair<int, int> frame;
-    vector<int> reference_string = {7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2, 1, 2, 0, 1, 7, 0, 1};
+    vector<int> reference_string = {1, 2, 3, 4, 2, 1, 5};
     vector<pair<int, int>> frames_array;
     int frame_size = 3;
     int page_fault = 0;
@@ -67,16 +72,10 @@ int main()
             {
                 if(p.first == x)
                 {
-                    p.second = 0;
+                    p = make_pair(p.first, p.second + 1);
                 }
             }
         }
-
-            for (auto &p : frames_array)
-            {
-                p = make_pair(p.first, p.second + 1);
-            }
-
         ++i;
     }
 

@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
 void In_file(){
@@ -13,7 +12,7 @@ struct process{
     int max_need[30];
 };
 
-int32_t main(){
+int main(){
     In_file();
     // cout << "Hello\n";
 

@@ -52,7 +52,7 @@ int main()
                 frames.push(x);
             }
         }
-        i = i + 1;
+        //i = i + 1;
     }
 
     cout << "Total Page Faults: " << page_fault << endl;

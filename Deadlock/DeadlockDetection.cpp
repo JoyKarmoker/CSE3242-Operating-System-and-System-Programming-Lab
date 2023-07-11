@@ -48,7 +48,7 @@ int32_t main()
     }
 
     bool finish[n] = {false};
-    vector<int> safe_seq = {0, 3, 4, 1, 2};
+    vector<int> safe_seq = {1, 3, 4, 2, 0};
 
     //cout << "Calculating safe sequence";
     for (auto i : safe_seq)
